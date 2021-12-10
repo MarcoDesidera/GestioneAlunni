@@ -1,0 +1,32 @@
+<!-- form per inserire i dati dello studente da aggiungere o modificare -->
+
+<form class="add-editStudent" [formGroup]="studentForm" (ngSubmit)="submit()" *ngIf="ActivateAddEditComponent">
+    <table cellspacing="0">
+      <tr>
+        <td><mat-form-field>
+          <mat-label>Nome</mat-label>
+        <input matInput type="text" formControlName="Nome">
+        </mat-form-field></td>
+        <td><mat-form-field>
+          <mat-label>Cognome</mat-label>
+        <input matInput type="text" formControlName="Cognome">
+        </mat-form-field></td>
+      </tr>
+    </table>
+    <table cellspacing="0">
+      <tr>
+        <td><mat-form-field>
+          <mat-label>Data di nascita</mat-label>
+        <input matInput type="date" formControlName="DataDiNascita">
+        </mat-form-field></td>
+        <td><mat-form-field>
+          <mat-label>Classe</mat-label>
+          <input matInput type="text" formControlName="Classe">
+        </mat-form-field></td>
+      </tr>
+    </table>
+	
+	<!-- pulsanti per aggiungere o modificare lo studente. viene visualizzato uno o l'altro a seconda della funzione da compiere -->
+    <button mat-button *ngIf="student.Nome==''" type="submit">Add</button>
+    <button mat-button *ngIf="student.Nome!=''" type="submit">Edit</button>
+  </form>
